@@ -27,7 +27,7 @@
  * @returns {string}
  */
 export function frontDoorResponse(line) {
-  throw new Error('Remove this line and implement the function');
+  return line[0];
 }
 
 /**
@@ -38,7 +38,11 @@ export function frontDoorResponse(line) {
  * @returns {string} the front door password
  */
 export function frontDoorPassword(word) {
-  throw new Error('Remove this line and implement the function');
+  let restoftheword = '';
+  for (let i = 1; i < word.length; i++){
+    restoftheword += word[i].toLowerCase();
+  }
+  return word[0].toUpperCase() + restoftheword;
 }
 
 /**
@@ -49,7 +53,9 @@ export function frontDoorPassword(word) {
  * @returns {string}
  */
 export function backDoorResponse(line) {
-  throw new Error('Remove this line and implement the function');
+  let newline = line.trim();
+  let indexoflastletter = newline.length - 1;
+  return newline[indexoflastletter];
 }
 
 /**
@@ -60,5 +66,5 @@ export function backDoorResponse(line) {
  * @returns {string} the back door password
  */
 export function backDoorPassword(word) {
-  throw new Error('Remove this line and implement the function');
+  return frontDoorPassword(word) + ", please"
 }
