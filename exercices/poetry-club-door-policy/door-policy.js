@@ -38,11 +38,12 @@ export function frontDoorResponse(line) {
  * @returns {string} the front door password
  */
 export function frontDoorPassword(word) {
-  let restoftheword = '';
-  for (let i = 1; i < word.length; i++){
-    restoftheword += word[i].toLowerCase();
-  }
-  return word[0].toUpperCase() + restoftheword;
+  //let restoftheword = '';
+  //for (let i = 1; i < word.length; i++){
+  //  restoftheword += word[i].toLowerCase();
+  //}
+  //return word[0].toUpperCase() + restoftheword;
+  return word[0].toUpperCase() + word.slice(1).toLowerCase();
 }
 
 /**
