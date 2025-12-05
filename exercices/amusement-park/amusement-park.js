@@ -21,7 +21,6 @@ export function createVisitor(name, age, ticketId) {
  * @returns {Visitor} the visitor without a ticket
  */
 export function revokeTicket(visitor) {
-  let Visitor = visitor;
   visitor.ticketId = null;
   return visitor;
 }
@@ -34,14 +33,14 @@ export function revokeTicket(visitor) {
  * @returns {string} ticket status
  */
 export function ticketStatus(tickets, ticketId) {
-  if (ticketId === undefined){
+  if (tickets[ticketId] === undefined){
     return 'unknown ticket id'
   }
-  else if (ticketId === null){
+  else if (tickets[ticketId] === null){
     return 'not sold'
   }
   else{
-    return 'sold to ' + ticketId
+    return 'sold to ' + tickets[ticketId]
   }
 }
 
@@ -54,11 +53,11 @@ export function ticketStatus(tickets, ticketId) {
  * @returns {string} ticket status
  */
 export function simpleTicketStatus(tickets, ticketId) {
-  if (ticketId === null || ticketId === undefined){
+  if (tickets[ticketId] === null || tickets[ticketId] === undefined){
     return 'invalid ticket !!!'
   }
   else {
-    return ticketId
+    return tickets[ticketId]
   }
 }
 
