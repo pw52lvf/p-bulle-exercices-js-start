@@ -33,7 +33,7 @@ export function onError() {
  * @return void
  */
 export function orderFromGrocer(query, onSuccessCallback, onErrorCallback) {
-  return order(query)
+  return order(query, onSuccessCallback, onErrorCallback)
 }
 
 /**
@@ -42,5 +42,5 @@ export function orderFromGrocer(query, onSuccessCallback, onErrorCallback) {
  * @return void
  */
 export function postOrder(variety, quantity) {
-  return 'order placed for ' + quantity + ' ' + variety
+  return order({ variety, quantity }, onSuccess, onError)
 }
