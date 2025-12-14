@@ -11,7 +11,21 @@
  * @returns {number} time in minutes
  */
 export function timeToMixJuice(name) {
-  throw new Error('Remove this line and implement the function');
+  if (name === 'Pure Strawberry Joy'){
+    return 0.5
+  }
+  else if (name === 'Green Garden' || name === 'Energizer'){
+    return 1.5
+  }
+  else if (name === 'Tropical Island'){
+    return 3
+  }
+  else if (name === 'All or Nothing'){
+    return 5
+  }
+  else {
+    return 2.5
+  }
 }
 
 /**
@@ -23,7 +37,24 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  throw new Error('Remove this line and implement the function');
+  let num = 0;
+  for (let i = 0; i < limes.length; i++){
+    if (wedgesNeeded > 0){
+      if (limes[i] === 'small'){
+        wedgesNeeded -= 6;
+        num++;
+      }
+      else if (limes[i] === 'medium'){
+        wedgesNeeded -= 8;
+        num++;
+      }
+      else if (limes[i] === 'large'){
+        wedgesNeeded -= 10;
+        num++;
+      }
+    }
+  }
+  return num
 }
 
 /**
@@ -34,5 +65,10 @@ export function limesToCut(wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error('Remove this line and implement the function');
+  for (let i = 0; timeLeft > 0; i++){
+    timeLeft -= timeToMixJuice(orders[i]);
+    orders.shift()
+  }
+
+  return orders
 }
