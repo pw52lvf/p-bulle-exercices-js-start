@@ -4,9 +4,10 @@
 //
 
 export class BankAccount {
+    #somme;
+    #isoppen;
   constructor() {
-    let somme;
-    let isoppen = false;
+    isoppen = false;
   }
 
   open() {
