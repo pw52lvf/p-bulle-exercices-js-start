@@ -28,20 +28,15 @@ export function cardTypeCheck(stack, card) {
  */
 export function determineOddEvenCards(stack, type) {
   // 🚨 Use a `for...of` loop
-  let num = 0;
-  if (type === true){
-    for (const n of stack){
-      if (n % 2 === 0){
-        num++;
-      }
+  let evens = 0;
+  let odds = 0;
+  for (const n of stack){
+    if (n % 2 === 0){
+      evens++;
+    }
+    else {
+      odds++;
     }
   }
-  else {
-    for (const n of stack){
-      if (n % 2 !== 0){
-        num++;
-      }
-    }
-  }
-  return num
+  return type ? evens : odds
 }
