@@ -7,13 +7,13 @@ export class BankAccount {
     #somme;
     #isoppen;
   constructor() {
-    isoppen = false;
+    this.#isoppen = false;
   }
 
   open() {
-    if (!isoppen){
-      isoppen = true;
-      somme = 0;
+    if (!this.#isoppen){
+      this.#isoppen = true;
+      this.#somme = 0;
     }
     else {
       throw new ValueError();
@@ -21,8 +21,8 @@ export class BankAccount {
   }
 
   close() {
-    if (isoppen){
-      isoppen = false;
+    if (this.#isoppen){
+      this.#isoppen = false;
     }
     else{
       throw new ValueError();
@@ -30,8 +30,8 @@ export class BankAccount {
   }
 
   deposit(value) {
-    if (isoppen && value > 0){
-      somme += value;
+    if (this.#isoppen && value > 0){
+      this.#somme += value;
     }
     else {
       throw new ValueError();
@@ -39,8 +39,8 @@ export class BankAccount {
   }
 
   withdraw(value) {
-    if (isoppen && somme >= value && value > 0){
-      somme -= value;
+    if (this.#isoppen && this.#somme >= value && value > 0){
+      this.#somme -= value;
     }
     else{
       throw new ValueError();
@@ -48,8 +48,8 @@ export class BankAccount {
   }
 
   get balance() {
-    if (isoppen){
-      return somme
+    if (this.#isoppen){
+      return this.#somme
     }
     else {
       throw new ValueError();
