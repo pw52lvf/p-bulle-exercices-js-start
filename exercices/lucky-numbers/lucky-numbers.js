@@ -30,13 +30,13 @@ export function luckyNumber(value) {
  * @returns {string} error message
  */
 export function errorMessage(input) {
-  if (input === null || input === '' || input === undefined){
-    return 'Required field'
+  if (!Boolean(input)){
+    return 'Required field';
   }
   else if (Number.isNaN(Number(input)) || Number(input) === 0){
     return 'Must be a number besides 0'
   }
-  else{
+  else {
     return ''
   }
 }
