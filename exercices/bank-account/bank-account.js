@@ -11,9 +11,9 @@ export class BankAccount {
   }
 
   open() {
-    if (!this.isoppen){
-      this.isoppen = true;
-      this.somme = 0;
+    if (!isoppen){
+      isoppen = true;
+      somme = 0;
     }
     else {
       throw new ValueError();
@@ -21,8 +21,8 @@ export class BankAccount {
   }
 
   close() {
-    if (this.isoppen){
-      this.isoppen = false;
+    if (isoppen){
+      isoppen = false;
     }
     else{
       throw new ValueError();
@@ -30,8 +30,8 @@ export class BankAccount {
   }
 
   deposit(value) {
-    if (this.isoppen && value > 0){
-      this.somme += value;
+    if (isoppen && value > 0){
+      somme += value;
     }
     else {
       throw new ValueError();
@@ -39,8 +39,8 @@ export class BankAccount {
   }
 
   withdraw(value) {
-    if (this.isoppen && this.somme >= value && value > 0){
-      this.somme -= value;
+    if (isoppen && somme >= value && value > 0){
+      somme -= value;
     }
     else{
       throw new ValueError();
@@ -48,8 +48,8 @@ export class BankAccount {
   }
 
   get balance() {
-    if (this.isoppen){
-      return this.somme
+    if (isoppen){
+      return somme
     }
     else {
       throw new ValueError();
