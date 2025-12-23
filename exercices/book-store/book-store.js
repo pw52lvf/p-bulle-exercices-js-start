@@ -6,8 +6,8 @@
 export const cost = (books) => {
   let groups = [0, 0, 0, 0, 0, 0];
   let sum = 0;
-  let fivechanged;
-  let threechanged;
+  let fivetochange;
+  let threetochange;
 
   for (let i = 1; i < 6; i++){
     for (let j = 0; j < frequence(i, books); j++){
@@ -15,18 +15,33 @@ export const cost = (books) => {
     } 
   }
 
+  //if (groups.includes(5) && groups.includes(3)){
+  //  fivechanged = Math.min(frequence(5, groups), frequence(3, groups));
+  //  threechanged = fivechanged
+  //  groups.forEach(book => {
+  //      if (book === 5 && fivechanged > 0){
+  //        book = 4;
+  //        fivechanged--;
+  //      } else if (book === 3 && threechanged > 0){
+  //        book = 4;
+  //        threechanged--;
+  //      }
+  //    });
+  //}
+
   if (groups.includes(5) && groups.includes(3)){
-    fivechanged = Math.min(frequence(5, groups), frequence(3, groups));
-    threechanged = Math.min(frequence(5, groups), frequence(3, groups));
-    groups.forEach(book => {
-        if (book === 5 && fivechanged > 0){
-          book = 4;
-          fivechanged--;
-        } else if (book === 3 && threechanged > 0){
-          book = 4;
-          threechanged--;
-        }
-      });
+    fivetochange = Math.min(frequence(5, groups), frequence(3, groups));
+    threetochange = fivetochange;
+    for (let i = 0; i < groups.length; i++){
+      if (groups[i] === 5 && fivetochange > 0){
+        groups[i] = 4;
+        fivetochange--;
+      }
+      else if (groups[i] === 3 && threetochange > 0){
+        groups[i] = 4;
+        threetochange--;
+      }
+    }
   }
 
   groups.forEach(book => {
