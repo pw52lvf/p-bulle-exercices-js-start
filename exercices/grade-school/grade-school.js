@@ -4,15 +4,25 @@
 //
 
 export class GradeSchool {
+  #students = [];
+  #grades = [];
   roster() {
-    throw new Error('Remove this line and implement the function');
+    return this.#students;
   }
 
-  add() {
-    throw new Error('Remove this line and implement the function');
+  add(student, grade) {
+    if (this.#students.includes(student)){
+      return false;
+    }
+    else{
+      this.#students.push(student);
+      this.#grades.push(grade)
+      return true;
+    }
   }
 
-  grade() {
-    throw new Error('Remove this line and implement the function');
+  grade(grade) {
+    let index = this.#grades.indexOf(grade);
+    return this.#students[index];
   }
 }
